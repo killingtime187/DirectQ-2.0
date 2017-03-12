@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AE4C00CC-F232-4917-89D7-5D78E6DF6AEB}</ProjectGuid>
+    <RootNamespace>DirectQ</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;GLQUAKE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxguid.lib;comctl32.lib;winmm.lib;wsock32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)DirectQ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)$(TargetFileName).manifest</OutputManifestFile>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;GLQUAKE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxguid.lib;comctl32.lib;winmm.lib;wsock32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>C:\Quake\DirectQ.exe</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)$(TargetFileName).manifest</OutputManifestFile>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="cd_win.cpp" />
+    <ClCompile Include="dshow_mp3.cpp" />
+    <ClCompile Include="snd_dma.cpp" />
+    <ClCompile Include="snd_mem.cpp" />
+    <ClCompile Include="snd_mix.cpp" />
+    <ClCompile Include="snd_win.cpp" />
+    <ClCompile Include="d3d_alias.cpp" />
+    <ClCompile Include="d3d_alpha.cpp" />
+    <ClCompile Include="d3d_draw.cpp" />
+    <ClCompile Include="d3d_fog.cpp" />
+    <ClCompile Include="d3d_hlsl.cpp" />
+    <ClCompile Include="d3d_image.cpp" />
+    <ClCompile Include="d3d_iqm.cpp" />
+    <ClCompile Include="d3d_light.cpp" />
+    <ClCompile Include="d3d_main.cpp" />
+    <ClCompile Include="d3d_matrix.cpp" />
+    <ClCompile Include="d3d_misc.cpp" />
+    <ClCompile Include="d3d_model.cpp" />
+    <ClCompile Include="d3d_part.cpp" />
+    <ClCompile Include="d3d_rtt.cpp" />
+    <ClCompile Include="d3d_screen.cpp" />
+    <ClCompile Include="d3d_sky.cpp" />
+    <ClCompile Include="d3d_sprite.cpp" />
+    <ClCompile Include="d3d_state.cpp" />
+    <ClCompile Include="d3d_surf.cpp" />
+    <ClCompile Include="d3d_texture.cpp" />
+    <ClCompile Include="d3d_warp.cpp" />
+    <ClCompile Include="mod_alias.cpp" />
+    <ClCompile Include="mod_brush.cpp" />
+    <ClCompile Include="noise.cpp" />
+    <ClCompile Include="vid_cmds.cpp" />
+    <ClCompile Include="vid_d3d.cpp" />
+    <ClCompile Include="vid_menu.cpp" />
+    <ClCompile Include="wad.cpp" />
+    <ClCompile Include="chase.cpp" />
+    <ClCompile Include="cl_demo.cpp" />
+    <ClCompile Include="cl_efrag.cpp" />
+    <ClCompile Include="cl_fx.cpp" />
+    <ClCompile Include="cl_input.cpp" />
+    <ClCompile Include="cl_main.cpp" />
+    <ClCompile Include="cl_parse.cpp" />
+    <ClCompile Include="cl_particles.cpp" />
+    <ClCompile Include="cl_view.cpp" />
+    <ClCompile Include="cl_webdownload.cpp" />
+    <ClCompile Include="cmd.cpp" />
+    <ClCompile Include="console.cpp" />
+    <ClCompile Include="cvar.cpp" />
+    <ClCompile Include="hud.cpp" />
+    <ClCompile Include="in_360.cpp" />
+    <ClCompile Include="in_joy.cpp" />
+    <ClCompile Include="in_win.cpp" />
+    <ClCompile Include="keys.cpp" />
+    <ClCompile Include="location.cpp" />
+    <ClCompile Include="menu_common.cpp" />
+    <ClCompile Include="menu_multiplayer.cpp" />
+    <ClCompile Include="menu_other.cpp" />
+    <ClCompile Include="menu_singleplayer.cpp" />
+    <ClCompile Include="iplog.cpp" />
+    <ClCompile Include="net_dgrm.cpp" />
+    <ClCompile Include="net_loop.cpp" />
+    <ClCompile Include="net_main.cpp" />
+    <ClCompile Include="net_wins.cpp" />
+    <ClCompile Include="pr_class.cpp" />
+    <ClCompile Include="pr_cmds.cpp" />
+    <ClCompile Include="pr_edict.cpp" />
+    <ClCompile Include="sv_main.cpp" />
+    <ClCompile Include="sv_move.cpp" />
+    <ClCompile Include="sv_phys.cpp" />
+    <ClCompile Include="sv_user.cpp" />
+    <ClCompile Include="sv_world.cpp" />
+    <ClCompile Include="classinit.cpp" />
+    <ClCompile Include="com_common.cpp" />
+    <ClCompile Include="com_filesystem.cpp" />
+    <ClCompile Include="com_game.cpp" />
+    <ClCompile Include="com_messaging.cpp" />
+    <ClCompile Include="com_newfilesystem.cpp" />
+    <ClCompile Include="crash.cpp" />
+    <ClCompile Include="crc.cpp" />
+    <ClCompile Include="heap.cpp" />
+    <ClCompile Include="host.cpp" />
+    <ClCompile Include="host_cmd.cpp" />
+    <ClCompile Include="mathlib.cpp" />
+    <ClCompile Include="md5.c" />
+    <ClCompile Include="nehahra.cpp" />
+    <ClCompile Include="sys_win.cpp" />
+    <ClCompile Include="unzip.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bspfile.h" />
+    <ClInclude Include="cdaudio.h" />
+    <ClInclude Include="cl_fx.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="cmd.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="console.h" />
+    <ClInclude Include="crc.h" />
+    <ClInclude Include="cvar.h" />
+    <ClInclude Include="d3d_model.h" />
+    <ClInclude Include="d3d_quake.h" />
+    <ClInclude Include="draw.h" />
+    <ClInclude Include="dshow_mp3.h" />
+    <ClInclude Include="global.h" />
+    <ClInclude Include="heap.h" />
+    <ClInclude Include="hud.h" />
+    <ClInclude Include="hud_layout.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="iplog.h" />
+    <ClInclude Include="iqm.h" />
+    <ClInclude Include="keys.h" />
+    <ClInclude Include="location.h" />
+    <ClInclude Include="mathlib.h" />
+    <ClInclude Include="md5.h" />
+    <ClInclude Include="menu_common.h" />
+    <ClInclude Include="modelgen.h" />
+    <ClInclude Include="net.h" />
+    <ClInclude Include="particles.h" />
+    <ClInclude Include="pr_class.h" />
+    <ClInclude Include="pr_comp.h" />
+    <ClInclude Include="progdefs.h" />
+    <ClInclude Include="progs.h" />
+    <ClInclude Include="protocol.h" />
+    <ClInclude Include="quakedef.h" />
+    <ClInclude Include="render.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="screen.h" />
+    <ClInclude Include="server.h" />
+    <ClInclude Include="sound.h" />
+    <ClInclude Include="spritegn.h" />
+    <ClInclude Include="sys.h" />
+    <ClInclude Include="unzip.h" />
+    <ClInclude Include="versions.h" />
+    <ClInclude Include="vid.h" />
+    <ClInclude Include="view.h" />
+    <ClInclude Include="wad.h" />
+    <ClInclude Include="webdownload.h" />
+    <ClInclude Include="winquake.h" />
+    <ClInclude Include="world.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="CrosshairFont.png" />
+    <Image Include="dq.ico" />
+    <Image Include="dqlogoint.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DirectQ.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="fxAlias.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="fxBrush.fx" />
+    <FxCompile Include="fxDraw.fx" />
+    <FxCompile Include="fxParticles.fx" />
+    <FxCompile Include="fxRTTEffects.fx" />
+    <FxCompile Include="fxSprite.fx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
